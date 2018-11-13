@@ -1,21 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 12:41:31 by abelkhay          #+#    #+#             */
-/*   Updated: 2018/11/12 15:15:54 by abelkhay         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef LIBFT_H
+# define LIBFT_H
 
 #include <unistd.h>
 #include <string.h>
 
 void	ft_putchar(char c)
 {
-	write (1, &c, 1);
+	write(1, &c, 1);
 }
 
 void	ft_putstr(char *str)
@@ -30,18 +21,6 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	char *tmp;
-	const char *tmp2;
-
-	tmp = (char *)dst;
-	tmp2 = (char *)src;
-	while (n--)
-	{
-		*tmp = *tmp2;
-		tmp++;
-		tmp2++;
-	}
-	return (tmp);
-}
+size_t	ft_strlen(const char *s);
+char	*ft_strncat(char *dest, char *src, size_t n);
+#endif
