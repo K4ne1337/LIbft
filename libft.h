@@ -13,5 +13,7 @@ void	ft_putchar(char c)
 
 size_t	ft_strlen(const char *s);
 char	*ft_strncat(char *dest, char *src, size_t n);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+
 
 #endif
