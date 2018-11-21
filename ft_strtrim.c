@@ -2,39 +2,20 @@
 
 char *ft_strtrim(char const *s)
 {
-	size_t i;
-	size_t y;
-	size_t len;
-	char *fresh;
+	unsigned int i;
+	unsigned int y;
 
-	len = ft_strlen(s);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == ' ' || s[i] == ',' || s[i] == '\n' || s[i] == '\t')
-		{
-			i++;
-			len--;
-		}
-		else
-			i++;
-	}
-	fresh = (char *)malloc(sizeof(char) * len + 1);
-	if (fresh == NULL)
+	if (!s)
 		return (NULL);
+	if (!*s)
+		return ((char *)s);
 	i = 0;
-	y = 0;
-	while(s[i] != '\0')
-	{
-		if (s[i] ==  ' ' || s[i] == ',' || s[i] == '\n' || s[i] == '\t')
-			i++;
-		else
-		{
-			fresh[y] = s[i];
-			i++;
-			y++;
-		}
-	}
-	fresh[y] = '\0';
-	return (fresh);
+	y = ft_strlen(s) - 1;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	if (i == ft_strlen(s))
+		return (ft_strsub(s, i, y));
+	while (s[y] ==  ' ' || s[y] == '\n' || s[y] == '\t')
+		y--;
+	return (ft_strsub(s, i, (y - i + 1)));
 }
