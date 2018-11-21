@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	int i;
 	int y;
@@ -8,9 +8,7 @@ char	*ft_strcat(char *dest, char *src)
 	i = 0;
 	y = 0;
 	while(dest[i] != '\0')
-	{
 		i++;
-	}
 	while(src[y] != '\0')
 	{
 		dest[i] = src[y];
@@ -18,5 +16,5 @@ char	*ft_strcat(char *dest, char *src)
 		y++;
 	}
 	dest[i] = '\0';
-	return (0);
+	return (dest);
 }
