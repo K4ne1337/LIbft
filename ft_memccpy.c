@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memccpy.c                                          :+:      :+:    :+:   */
+/*                                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelkhay <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,27 +11,22 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-void	*ft_memccpy(void	*restrict dst, const void *restrict src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char	*tmp;
-	const	char *tmp2;
-	char	d;
+	size_t i;
+	unsigned char *d;
+	unsigned char *s;
 
-	d = (char)c;
-	tmp = (char *)dst;
-	tmp2 = (char *)src;
-	while ( n--)
+	i = 0;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	while (i < n)
 	{
-		if (*tmp2 != d)
-		{
-			*tmp = *tmp2;
-			tmp++;
-			tmp2++;
-		}
-		else
-			return(tmp);
+		d[i] = s[i];
+		if (s[i] == (unsigned char)c)
+			return (d + i + 1);
+		i++;
 	}
-	return (tmp);
+	return (NULL);
 }
