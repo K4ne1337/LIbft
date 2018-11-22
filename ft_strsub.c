@@ -6,6 +6,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char *fresh;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	fresh = (char *)malloc(sizeof (char) * len + 1);
 	if (!fresh)
 		return (NULL);

@@ -7,6 +7,6 @@ char	*ft_strnew(size_t size)
 	memo = (char *)malloc(sizeof(char) * size + 1);
 	if (!memo)
 		return (NULL);
-	ft_bzero((void *)memo, size + 1);
+	ft_bzero(memo, size + 1);
 	return (memo);
 }

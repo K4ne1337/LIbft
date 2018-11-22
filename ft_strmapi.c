@@ -2,11 +2,12 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
+	unsigned int i;
 	char	*fresh;
 
-	i = 0;
-	fresh = (char *)malloc(sizeof(char) * ft_strlen(s));
+	if (!s)
+		return (NULL);
+	fresh = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (s == NULL || f == NULL)
 		return (NULL);
 	while (s[i])
@@ -14,5 +15,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		fresh[i] = (*f)(i, s[i]);
 		i++;
 	}
+	fresh[i] = '\0';
 	return (fresh);
 }

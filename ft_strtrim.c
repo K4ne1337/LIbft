@@ -2,20 +2,20 @@
 
 char *ft_strtrim(char const *s)
 {
-	unsigned int i;
-	unsigned int y;
+	size_t min;
+	size_t max;
+	size_t len;
 
 	if (!s)
 		return (NULL);
-	if (!*s)
-		return ((char *)s);
-	i = 0;
-	y = ft_strlen(s) - 1;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	if (i == ft_strlen(s))
-		return (ft_strsub(s, i, y));
-	while (s[y] ==  ' ' || s[y] == '\n' || s[y] == '\t')
-		y--;
-	return (ft_strsub(s, i, (y - i + 1)));
+	min = 0;
+	while (s[min] != '\0' && (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
+		min++;
+	max = ft_strlen(s);
+	while (min < max && s[max - 1] ==  ' ' || s[max - 1] == '\n' || s[max - 1] == '\t')
+		max--;
+	if (min == max)
+		return (ft_strnew(1));
+	len = max - min;
+	return (ft_strsub(s, min, len));
 }
