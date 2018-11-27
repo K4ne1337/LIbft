@@ -12,7 +12,7 @@ char *ft_strtrim(char const *s)
 	while (s[min] != '\0' && (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
 		min++;
 	max = ft_strlen(s);
-	while (min < max && s[max - 1] ==  ' ' || s[max - 1] == '\n' || s[max - 1] == '\t')
+	while (min < max && (s[max - 1] ==  ' ' || s[max - 1] == '\n' || s[max - 1] == '\t'))
 		max--;
 	if (min == max)
 		return (ft_strnew(1));

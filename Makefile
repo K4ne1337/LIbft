@@ -53,7 +53,13 @@ ft_strdup.c\
 ft_strdel.c\
 ft_strclr.c\
 ft_memset.c\
-ft_memdel.c
+ft_memdel.c\
+ft_lstadd.c\
+ft_lstdel.c\
+ft_lstdelone.c\
+ft_lstiter.c\
+ft_lstmap.c\
+ft_lstnew.c
 
 OBJ = $(SRC:.c=.o)
 
